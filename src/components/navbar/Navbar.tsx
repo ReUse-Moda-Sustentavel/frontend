@@ -10,7 +10,7 @@ function Navbar() {
                 h-24
                 px-10
                 bg-gray-200">
-            <div className="text-2xl flex items-center justify-start">
+            <div className=" cursor-pointer text-2xl flex items-center justify-start">
                 Menu
             </div>
             <div className="text-7xl flex items-center justify-center">

@@ -1,4 +1,3 @@
-import background from '../../assets/wardrobe-home-image.jpg'
 
 function Home() {
     return (
