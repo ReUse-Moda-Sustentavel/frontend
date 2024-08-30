@@ -7,8 +7,8 @@ import Contato from './pages/Contato/Contato';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Login from './pages/login/Login';
-import Cadastro from './pages/cadastro/Cadastro';
 import { AuthProvider } from './contexts/AuthContext';
+import Cadastro from './pages/cadastro/Cadastro';
 
 function App() {
   return (
