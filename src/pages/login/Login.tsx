@@ -17,7 +17,7 @@ function Login() {
   useEffect(() => {
     console.log(usuario);
 
-if (usuario.token !== '') {
+    if (usuario.token !== '') {
       navigate("/")
     }
   }, [usuario])
@@ -34,56 +34,61 @@ if (usuario.token !== '') {
     handleLogin(usuarioLogin)
   }
 
- {/* console.log(JSON.stringify(usuarioLogin))*/}
-
   return (
-    <div className="h-screen grid grid-cols-2">
-      <div className="login-section flex flex-col justify-center items-center">
-        <h2 className='text-4xl font-bold'>Entrar</h2>
-        <form
-          onSubmit={login}
-          className="flex flex-col w-[60%]"
-          method="post">
-          <label htmlFor="" className='font-bold pt-2'>Usuário</label>
-          <input
-            type="text"
-            name="usuario"
-            id="usuario"
-            placeholder='Usuário'
-            value={usuarioLogin.usuario}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            className='border-2 border-black rounded py-1 px-3' />
-          <label htmlFor="" className='font-bold pt-2'>Senha</label>
-          <input
-            type="password"
-            name="senha"
-            id="senha"
-            placeholder='Senha'
-            value={usuarioLogin.senha}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            className='border-2 border-black rounded py-1 px-3' />
+    <div className='bg-login bg-center h-[100vh] pt-12'>
+      <div className="
+      w-[28rem] shadow-2xl 
+      p-8 border-t-[6px] border-reuse-green
+      mx-auto bg-white">
+        <div className="flex flex-col justify-center items-center">
+          <h2 className='text-3xl text-reuse-green font-bold pb-8'>Login</h2>
+          <form
+            onSubmit={login}
+            className="flex flex-col w-[100%]"
+            method="post">
+            <input
+              type="text"
+              name="usuario"
+              id="usuario"
+              placeholder='Usuário'
+              value={usuarioLogin.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green' />
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              placeholder='Senha'
+              value={usuarioLogin.senha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              className='
+              border border-gray-400 
+              w-[100%] py-3 px-4 mb-6 
+              outline-none' />
 
-          <button type="submit"
-            className='w-[40%] 
-            bg-indigo-400 
-            py-2 mt-4
+            <button type="submit"
+              className='w-[100%] 
+            bg-reuse-green hover:opacity-95
+            py-3 px-4 mt-4
             self-center    
             text-white 
             font-bold
-            rounded flex
+            flex 
             items-center justify-center'>
-            {
-              isLoading ? <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> :
-                "Entrar"
-            }
-          </button>
-        </form>
-        <div className='w-[60%] h-[0.5px] bg-black mt-4' />
-        <span className='p-4 font-bold'>
-          Ainda não tem uma conta? <Link to="/cadastro" className='text-indigo-800 cursor-pointer hover:underline'>Cadastre-se</Link>
+              {
+                isLoading ? <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> :
+                  "Entrar"
+              }
+            </button>
+          </form>
+          <span className='p-4 font-bold text-gray-500'>
+            Ainda não tem uma conta? <Link to="/cadastro" className='text-reuse-green cursor-pointer hover:underline'>Cadastre-se</Link>
 
-        </span>
+          </span>
 
+        </div>
       </div>
     </div>
   );

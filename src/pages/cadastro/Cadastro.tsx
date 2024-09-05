@@ -41,7 +41,7 @@ function Cadastro() {
       ...usuario,
       [e.target.name]: e.target.value
     })
-    
+
   }
 
 
@@ -62,7 +62,7 @@ function Cadastro() {
 
       try {
         console.log(usuario);
-        
+
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
         alert('Usuário cadastrado com sucesso!');
 
@@ -80,23 +80,26 @@ function Cadastro() {
   }
 
   return (
-    <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 h-screen 
-            place-items-center font-bold">
-        <div className="fundoCadastro hidden lg:block"></div>
-
-        <form className='flex justify-center items-center flex-col w-2/3 gap-3'
+    <div className='bg-login bg-center h-[100vh] py-12'>
+      <div className="w-[28rem] shadow-2xl 
+                      p-8 border-t-[6px] border-reuse-green
+                      mx-auto bg-white">
+        <form className='
+          flex flex-col'
           onSubmit={cadastrarNovoUsuario}
         >
-          <h2 className='text-slate-900 text-5xl'>Cadastrar</h2>
+          <h2 className='text-3xl text-reuse-green 
+                        font-bold text-center
+                        pb-8'>Cadastrar</h2>
           <div className="flex flex-col w-full">
-            <label htmlFor="nome">Nome</label>
             <input
               type="text"
               id="nome"
               name="nome"
               placeholder="Nome"
-              className="border-2 border-slate-700 rounded p-2"
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
 
               value={usuario.nome}
 
@@ -104,13 +107,14 @@ function Cadastro() {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="usuario">Usuario</label>
             <input
               type="text"
               id="usuario"
               name="usuario"
               placeholder="Usuario"
-              className="border-2 border-slate-700 rounded p-2"
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
 
               value={usuario.usuario}
 
@@ -118,13 +122,14 @@ function Cadastro() {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="foto">Foto</label>
             <input
               type="text"
               id="foto"
               name="foto"
               placeholder="Foto"
-              className="border-2 border-slate-700 rounded p-2"
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
 
               value={usuario.foto}
 
@@ -132,29 +137,31 @@ function Cadastro() {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="tipoUsuario">Tipo usuario</label>
             <input
               type="text"
               id="tipoUsuario"
               name="tipoUsuario"
               placeholder="Tipo Usuario"
-              className="border-2 border-slate-700 rounded p-2"
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
 
               value={usuario.tipoUsuario}
 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
           </div>
-          
-         
+
+
           <div className="flex flex-col w-full">
-            <label htmlFor="senha">Senha</label>
             <input
               type="password"
               id="senha"
               name="senha"
               placeholder="Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
 
               value={usuario.senha}
 
@@ -162,13 +169,14 @@ function Cadastro() {
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="confirmarSenha">Confirmar Senha</label>
             <input
               type="password"
               id="confirmarSenha"
               name="confirmarSenha"
               placeholder="Confirmar Senha"
-              className="border-2 border-slate-700 rounded p-2"
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 
+                  outline-none text-reuse-green'
 
 
               value={confirmaSenha}
@@ -177,19 +185,21 @@ function Cadastro() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmaSenha(e)}
             />
           </div>
-          <div className="flex justify-around w-full gap-8">
+          <div className="flex justify-around w-full gap-4 mt-4 pb-4">
 
-            <button className='rounded text-white bg-red-400 
-                  hover:bg-red-700 w-1/2 py-2'
+            <button className='text-white font-bold
+                           bg-red-800 hover:bg-red-700
+                           py-3 px-4 mt-4'
               onClick={retornar}
             >
               Cancelar
             </button>
             <button
               type='submit'
-              className='rounded text-white bg-green-400 
-                           hover:bg-green-900 w-1/2 py-2
-                           flex justify-center'
+              className='text-white font-bold
+                           bg-reuse-green
+                           py-3 px-4 mt-4
+                           w-3/4 hover:opacity-95'
             >
               {isLoading ? <RotatingLines
                 strokeColor="white"
@@ -204,7 +214,7 @@ function Cadastro() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 

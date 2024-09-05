@@ -12,25 +12,21 @@ import Cadastro from './pages/cadastro/Cadastro';
 
 function App() {
   return (
-    <div className='w-screen'>
-      <AuthProvider>
-
-        <BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className='grid [auto_1fr_auto]'>
           <Navbar />
-          <div className='min-h-[80vh] '>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/sobrenos' element={<SobreNos />} />
-              <Route path='/contato' element={<Contato />} />
-              <Route path='/cadastro' element={<Cadastro />} />
-              <Route path='/login' element={<Login />} />
-
-            </Routes>
-          </div>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/sobrenos' element={<SobreNos />} />
+            <Route path='/contato' element={<Contato />} />
+            <Route path='/cadastro' element={<Cadastro />} />
+            <Route path='/login' element={<Login />} />
+          </Routes>
           <Footer />
-        </BrowserRouter>
-        </AuthProvider>
-    </div>
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 export default App;
