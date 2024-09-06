@@ -31,9 +31,9 @@ function FormProduto() {
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setProduto({
       ...produto,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.name === "preco" ? parseFloat(e.target.value) : e.target.value
     })
-
     console.log(produto)
   }
 
@@ -63,7 +63,7 @@ function FormProduto() {
 
     } else {
       try {
-        await cadastrar(`/produtos`, produto, setProduto, {
+        await cadastrar(`/produto`, produto, setProduto, {
           headers: {
             'Authorization': token
           }
