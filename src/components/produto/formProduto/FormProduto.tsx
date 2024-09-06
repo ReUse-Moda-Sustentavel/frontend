@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../../contexts/AuthContext';
 import Produto from '../../../model/Produto';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
+import Categoria from '../../../model/Categoria';
 
 function FormProduto() {
   const [produto, setProduto] = useState<Produto>({} as Produto);
@@ -10,31 +11,74 @@ function FormProduto() {
   let navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
+  const [categorias, setCategorias] = useState<Categoria[]>([])
+
+  const [categoria, setCategoria] = useState<Categoria>({ id: 0, nome: '', genero: '' })
 
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  async function buscarPorId(id: string) {
+  async function buscarProdutoPorId(id: string) {
     await buscar(`/produto/${id}`, setProduto, {
       headers: {
         Authorization: token,
       },
     });
   }
+  async function buscarCategoriaPorId(id: string) {
+    try {
+      await buscar(`/categoria/${id}`, setCategoria, {
+        headers: { Authorization: token }
+      })
+    } catch (error: any) {
+      if (error.toString().includes('401')) {
+        handleLogout()
+      }
+    }
+  }
+  async function buscarCategorias() {
+    try {
+      await buscar('/categoria', setCategorias, {
+        headers: { Authorization: token }
+      })
+    } catch (error: any) {
+      if (error.toString().includes('401')) {
+        handleLogout()
+      }
+    }
+  }
 
   useEffect(() => {
+    buscarCategorias()
+
     if (id !== undefined) {
-      buscarPorId(id)
+      buscarProdutoPorId(id)
     }
   }, [id])
+
+
+  useEffect(() => {
+    setProduto({
+      ...produto,
+      categoria: categoria,
+    })
+  }, [categoria])
+
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setProduto({
       ...produto,
+
       [e.target.name]: e.target.value,
-      [e.target.name]: e.target.name === "preco" ? parseFloat(e.target.value) : e.target.value
-    })
-    console.log(produto)
+      [e.target.name]: e.target.name === "preco" ? parseFloat(e.target.value) : e.target.value,
+      categoria: categoria,
+
+
+    });
+
+    console.log(categoria)
+    console.log(categorias);
+
   }
 
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
@@ -147,6 +191,22 @@ function FormProduto() {
             value={produto.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
+
+          <div className="flex flex-col gap-2">
+            <p>Categoria do Produto</p>
+            <select name="categoria" id="categoria" className='border-slate-800 p-2 border rounded'
+              onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
+            >
+              <option value="" selected disabled>Selecione uma Categoria</option>
+
+              {categorias.map((categoria) => (
+                <>
+                  <option value={categoria.id} >{categoria.nome} {categoria.genero}</option>
+                </>
+              ))}
+
+            </select>
+          </div>
           <label htmlFor="foto" className='text-xl text-center'>
             Foto do Produto
           </label>
