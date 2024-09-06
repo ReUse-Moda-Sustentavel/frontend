@@ -55,10 +55,10 @@ function DeletarCategoria() {
         }
       })
 
-      // ToastAlerta('Postagem apagado com sucesso', 'sucesso')
+      // ToastAlerta('Categoria apagado com sucesso', 'sucesso')
 
     } catch (error) {
-      // ToastAlerta('Erro ao apagar o Postagem', 'erro')
+      // ToastAlerta('Erro ao apagar o Categoria', 'erro')
     }
 
     retornar()
