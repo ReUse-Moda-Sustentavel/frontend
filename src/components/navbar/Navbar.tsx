@@ -31,11 +31,17 @@ function Navbar() {
                 <ul className="
                     flex items-center 
                     justify-around gap-8">
-                    <li className="cursor-pointer">
+                    {/* <li className="cursor-pointer">
                         <Link to="/contato">Contato</Link>
                     </li>
                     <li className="cursor-pointer">
                         <Link to="/sobrenos">Sobre Nós</Link>
+                    </li> */}
+                    <li className="cursor-pointer">
+                        <Link to="/produtos">Produtos</Link>
+                    </li>
+                    <li className="cursor-pointer">
+                        <Link to="/cadastroProduto">Cadastrar Produto</Link>
                     </li>
                     <li className="cursor-pointer">
                         <Link to="/login">

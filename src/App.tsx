@@ -12,6 +12,9 @@ import Cadastro from './pages/cadastro/Cadastro';
 import ListaCategorias from './components/categoria/listaCategorias/ListaCategorias';
 import FormCategoria from './components/categoria/formCategoria.tsx/FormCategoria';
 import DeletarCategoria from './components/categoria/deletarCategoria.tsx/DeletarCategoria';
+import FormProduto from './components/produto/formProduto/FormProduto';
+import DeletarProduto from './components/produto/deletarProduto/DeletarProduto';
+import ListaProdutos from './components/produto/listaProduto/ListaProdutos';
 
 function App() {
   return (
@@ -30,6 +33,11 @@ function App() {
             <Route path="/cadastroCategoria" element={<FormCategoria />} />
             <Route path="/atualizarCategoria/:id" element={<FormCategoria />} />
             <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+
+            <Route path='/produtos' element={<ListaProdutos />} />
+            <Route path="/cadastroProduto" element={<FormProduto />} />
+            <Route path="/atualizarProduto/:id" element={<FormProduto />} />
+            <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
 
           </Routes>
           <Footer />
