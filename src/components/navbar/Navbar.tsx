@@ -12,8 +12,14 @@ function Navbar() {
                 bg-gray-200">
             <div className="
                 text-2xl 
-                flex items-center justify-start">
+                flex items-center justify-start gap-2">
                 <span className="cursor-pointer">Menu</span>
+                <Link to="/categorias">
+                    <span className="cursor-pointer">Categorias</span>
+                </Link>
+                <Link to="/cadastroCategoria">
+                    <span className="cursor-pointer">Cadastrar Categoria</span>
+                </Link>
             </div>
             <div className="
                 text-7xl flex items-center justify-center">
