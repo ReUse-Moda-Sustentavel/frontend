@@ -17,12 +17,15 @@ import Login from './pages/login/Login';
 import SobreNos from './pages/SobreNos/SobreNos';
 import { CartProvider } from './contexts/CartContext';
 import Cart from './components/carrinho/cart/Cart';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
     <CartProvider>
     <AuthProvider>
+      <ToastContainer/>
       <BrowserRouter>
           <Navbar />
           <div className='grid [auto_1fr_auto]'>

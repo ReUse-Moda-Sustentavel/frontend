@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../../contexts/AuthContext';
 import Categoria from '../../../model/Categoria';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 function FormCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -48,15 +49,15 @@ function FormCategoria() {
           }
         })
 
-        // ToastAlerta('Categoria atualizado com sucesso', 'sucesso')
+        ToastAlerta('Categoria atualizado com sucesso', 'sucesso')
         retornar()
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          // ToastAlerta('O token expirou, favor logar novamente', 'info')
+          ToastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          // ToastAlerta('Erro ao atualizar o Categoria', 'erro')
+          ToastAlerta('Erro ao atualizar o Categoria', 'erro')
         }
 
       }
@@ -69,14 +70,14 @@ function FormCategoria() {
           }
         })
 
-        // ToastAlerta('Categoria cadastrado com sucesso', 'sucesso')
+        ToastAlerta('Categoria cadastrado com sucesso', 'sucesso')
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          // ToastAlerta('O token expirou, favor logar novamente', 'info')
+          ToastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          // ToastAlerta('Erro ao cadastrado o Categoria', 'erro')
+          ToastAlerta('Erro ao cadastrado o Categoria', 'erro')
         }
       }
     }
@@ -90,7 +91,7 @@ function FormCategoria() {
 
   useEffect(() => {
     if (token === '') {
-      // ToastAlerta('Você precisa estar logado', 'info');;
+      ToastAlerta('Você precisa estar logado', 'info');;
       navigate('/login');
     }
   }, [token]);

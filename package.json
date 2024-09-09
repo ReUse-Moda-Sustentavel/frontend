@@ -20,6 +20,7 @@
     "react-input-number": "^5.0.19",
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.26.2",
+    "react-toastify": "9.1.2",
     "reactjs-popup": "^2.0.6"
   },
   "devDependencies": {

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import AuthContext from '../../../contexts/AuthContext';
 import Produto from '../../../model/Produto';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
+import { ToastAlerta } from '../../../utils/ToastAlerta';
 
 function FormProduto() {
   const [produto, setProduto] = useState<Produto>({} as Produto);
@@ -48,15 +49,15 @@ function FormProduto() {
           }
         })
 
-        // ToastAlerta('Produto atualizado com sucesso', 'sucesso')
+        ToastAlerta('Produto atualizado com sucesso', 'sucesso')
         retornar()
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          // ToastAlerta('O token expirou, favor logar novamente', 'info')
+          ToastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          // ToastAlerta('Erro ao atualizar o Produto', 'erro')
+          ToastAlerta('Erro ao atualizar o Produto', 'erro')
         }
 
       }
@@ -69,14 +70,14 @@ function FormProduto() {
           }
         })
 
-        // ToastAlerta('Produto cadastrado com sucesso', 'sucesso')
+        ToastAlerta('Produto cadastrado com sucesso', 'sucesso')
 
       } catch (error: any) {
         if (error.toString().includes('403')) {
-          // ToastAlerta('O token expirou, favor logar novamente', 'info')
+          ToastAlerta('O token expirou, favor logar novamente', 'info')
           handleLogout()
         } else {
-          // ToastAlerta('Erro ao cadastrar o Produto', 'erro')
+          ToastAlerta('Erro ao cadastrar o Produto', 'erro')
         }
       }
     }
@@ -90,7 +91,7 @@ function FormProduto() {
 
   useEffect(() => {
     if (token === '') {
-      // ToastAlerta('Você precisa estar logado', 'info');;
+      ToastAlerta('Você precisa estar logado', 'info');;
       navigate('/login');
     }
   }, [token]);

@@ -5,6 +5,7 @@ import AuthContext from "../../../contexts/AuthContext";
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
 import CardProduto from "../cardProduto/CardProduto";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 
 function ListaProdutos() {
@@ -22,7 +23,7 @@ function ListaProdutos() {
       });
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        // ToastAlerta('O token expirou, favor logar novamente', 'info')
+        ToastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -30,7 +31,7 @@ function ListaProdutos() {
  
   useEffect(() => {
     if (token === '') {
-      // ToastAlerta('Você precisa estar logado', 'info');;
+      ToastAlerta('Você precisa estar logado', 'info');;
       navigate('/login');
     }
   }, [token]);
