@@ -7,10 +7,12 @@ interface CardProdutoProps {
 
 function CardProduto({ produto }: CardProdutoProps) {
   return (
-    <div>
-      <div className="py-2 px-4 bg-green-300">{produto.id} - {produto.nome}</div>
+    <div className='h-[450px] bg-green-300'>
+      <div className="py-2 px-4 ">{produto.nome}</div>
 
       <div className="bg-green-400 flex justify-around">
+
+
         <Link to={`/atualizarProduto/${produto.id}`}>
           <button className="w-1/2 py-1 px-2">Editar</button>
         </Link>

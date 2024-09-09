@@ -1,20 +1,20 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/home/Home';
-import SobreNos from './pages/SobreNos/SobreNos';
-import Contato from './pages/Contato/Contato';
-import Navbar from './components/navbar/Navbar';
+import DeletarCategoria from './components/categoria/deletarCategoria.tsx/DeletarCategoria';
+import FormCategoria from './components/categoria/formCategoria.tsx/FormCategoria';
+import ListaCategorias from './components/categoria/listaCategorias/ListaCategorias';
 import Footer from './components/footer/Footer';
-import Login from './pages/login/Login';
+import Navbar from './components/navbar/Navbar';
+import DeletarProduto from './components/produto/deletarProduto/DeletarProduto';
+import FormProduto from './components/produto/formProduto/FormProduto';
+import ListaProdutos from './components/produto/listaProduto/ListaProdutos';
 import { AuthProvider } from './contexts/AuthContext';
 import Cadastro from './pages/cadastro/Cadastro';
-import ListaCategorias from './components/categoria/listaCategorias/ListaCategorias';
-import FormCategoria from './components/categoria/formCategoria.tsx/FormCategoria';
-import DeletarCategoria from './components/categoria/deletarCategoria.tsx/DeletarCategoria';
-import FormProduto from './components/produto/formProduto/FormProduto';
-import DeletarProduto from './components/produto/deletarProduto/DeletarProduto';
-import ListaProdutos from './components/produto/listaProduto/ListaProdutos';
+import Contato from './pages/Contato/Contato';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import SobreNos from './pages/SobreNos/SobreNos';
 
 function App() {
   return (
@@ -39,6 +39,7 @@ function App() {
             <Route path="/atualizarProduto/:id" element={<FormProduto />} />
             <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
 
+          
           </Routes>
           <Footer />
         </div>
