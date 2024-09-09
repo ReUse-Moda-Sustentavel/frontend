@@ -1,26 +1,53 @@
 import { Link } from 'react-router-dom'
 import Produto from '../../../model/Produto'
+import { CartContext } from '../../../contexts/CartContext'
+import { useContext } from 'react'
+import { Pencil, Trash } from '@phosphor-icons/react'
 
 interface CardProdutoProps {
   produto: Produto
 }
 
 function CardProduto({ produto }: CardProdutoProps) {
+
+  const { adicionarProduto } = useContext(CartContext)
+  
   return (
-    <div className='h-[450px] bg-green-300'>
-      <div className="py-2 px-4 ">{produto.nome}</div>
+    <div className='flex flex-col rounded-lg overflow-hidden justify-between bg-white my-10'>
+    <div className="flex justify-end items-end pt-2 pr-2">
 
-      <div className="bg-green-400 flex justify-around">
+      <Link to={`/editarproduto/${produto.id}`}>
+        <Pencil size={24} className="mr-1 hover:fill-teal-700" />
+      </Link>
 
+      <Link to={`/deletarproduto/${produto.id}`}>
+        <Trash size={24} className="mr-1 hover:fill-red-700" />
+      </Link>
 
-        <Link to={`/atualizarProduto/${produto.id}`}>
-          <button className="w-1/2 py-1 px-2">Editar</button>
-        </Link>
-        <Link to={`/deletarProduto/${produto.id}`}>
-          <button className="w-1/2 py-1 px-2">Deletar</button>
-        </Link>
+    </div>
+
+    <div className='py-4'>
+
+      <img src={produto.foto} className='mt-1 h-44 max-w-75 mx-auto' alt={produto.nome} />
+
+      <div className='p-4'>
+        <p className='text-sm text-center uppercase'>{produto.nome}</p>
+        <h3 className='text-xl text-center font-bold uppercase'>
+          {Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+          }).format(produto.preco)}
+        </h3>
+        <p className='text-sm italic text-center'>Categoria: {}</p>
       </div>
     </div>
+    <div className="flex flex-wrap">
+      <button className='w-full text-white bg-teal-500 hover:bg-teal-900 flex items-center justify-center py-2'
+        onClick={() => adicionarProduto(produto)}>
+        Comprar
+      </button>
+    </div>
+  </div >
   )
 }
 

@@ -13,13 +13,14 @@
     "@phosphor-icons/react": "^2.1.7",
     "@react-input/number-format": "^1.0.27",
     "autoprefixer": "^10.4.20",
-    "axios": "^1.7.5",
-    "postcss": "^8.4.41",
+    "axios": "^1.7.7",
+    "postcss": "^8.4.45",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-input-number": "^5.0.19",
     "react-loader-spinner": "^6.1.6",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.2",
+    "reactjs-popup": "^2.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

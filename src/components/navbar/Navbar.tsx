@@ -1,9 +1,10 @@
 import { ShoppingCart, User } from "@phosphor-icons/react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Contato from "../../pages/Contato/Contato"
 
 
 function Navbar() {
+    const navigate = useNavigate();
     return (
         <div className="
                 grid grid-cols-3
@@ -49,7 +50,8 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className="cursor-pointer">
-                        <ShoppingCart size={24} />
+                       
+                        <Link to='/cart'> <ShoppingCart size={24} /> </Link>
                     </li>
                 </ul>
             </div>

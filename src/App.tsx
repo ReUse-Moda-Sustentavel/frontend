@@ -15,19 +15,24 @@ import Contato from './pages/Contato/Contato';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import SobreNos from './pages/SobreNos/SobreNos';
+import { CartProvider } from './contexts/CartContext';
+import Cart from './components/carrinho/cart/Cart';
 
 function App() {
   return (
+    <>
+    <CartProvider>
     <AuthProvider>
       <BrowserRouter>
-        <div className='grid [auto_1fr_auto]'>
           <Navbar />
+          <div className='grid [auto_1fr_auto]'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/sobrenos' element={<SobreNos />} />
             <Route path='/contato' element={<Contato />} />
             <Route path='/cadastro' element={<Cadastro />} />
             <Route path='/login' element={<Login />} />
+            
 
             <Route path='/categorias' element={<ListaCategorias />} />
             <Route path="/cadastroCategoria" element={<FormCategoria />} />
@@ -38,13 +43,14 @@ function App() {
             <Route path="/cadastroProduto" element={<FormProduto />} />
             <Route path="/atualizarProduto/:id" element={<FormProduto />} />
             <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
-
-          
+            <Route path="/cart" element={<Cart />} />
           </Routes>
+          </div>
           <Footer />
-        </div>
       </BrowserRouter>
     </AuthProvider>
+    </CartProvider>
+    </>
   );
 }
 export default App;
