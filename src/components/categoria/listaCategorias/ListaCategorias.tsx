@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { DNA } from 'react-loader-spinner';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../../contexts/AuthContext';
 import Categoria from '../../../model/Categoria';
 import { buscar } from '../../../services/Service';
@@ -38,9 +38,24 @@ function ListaCategorias() {
   useEffect(() => {
     buscarTemas();
   }, [categorias.length]);
-  
+
   return (
     <>
+
+      <div className="mx-[6vw] py-4 flex justify-center md:justify-end ">
+        <Link to="/cadastroCategoria">
+          <button
+            className="bg-reuse-green text-white
+                    py-[10px] hover:bg-green-800 outline-none
+                    border-solid border-[1px] border-reuse-green 
+                    w-[280px] rounded-md">
+            Adicionar Categoria
+          </button>
+        </Link>
+      </div>
+
+      
+
       {categorias.length === 0 && (
         <DNA
           visible={true}
@@ -51,15 +66,14 @@ function ListaCategorias() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-      <div className="flex justify-center w-full my-4">
-        <div className="container flex flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categorias.map((categoria) => (
-              <>
-                <CardCategoria key={categoria.id} categoria={categoria} />
-              </>
-            ))}
-          </div>
+      <div>
+        <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  mx-[5vw] ">
+          {categorias.map((categoria) => (
+            <>
+              <CardCategoria key={categoria.id} categoria={categoria} />
+              {/* {produto.categoria?.id == 13 ? <CardProduto key={produto.id} produto={produto} /> : <></>}  */}
+            </>
+          ))}
         </div>
       </div>
     </>

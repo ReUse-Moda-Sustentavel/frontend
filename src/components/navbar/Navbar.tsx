@@ -13,10 +13,11 @@ function Navbar() {
                 bg-gray-200">
             <div className="
                 text-2xl 
-                flex items-center justify-start gap-2">
+                flex items-center justify-start gap-8">
 
 
                 <Link to="/produtos">Produtos</Link>
+                <Link to="/categorias">Categorias</Link>
                 {/* <Link to="/cadastroProduto">Cadastrar Produto</Link> */}
                 {/* <Link to="/categorias">
                     <span className="cursor-pointer">Categorias</span>
