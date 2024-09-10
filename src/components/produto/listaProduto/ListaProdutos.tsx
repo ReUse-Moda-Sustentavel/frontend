@@ -69,18 +69,17 @@ function ListaProdutos(isHome: isHome) {
         </div>
       )}
       {produtos.length === 0 && (
-        <Puff
-        visible={true}
-        height="100"
-        width="100"
-        color="#4fa94d"
-        ariaLabel="puff-loading"
-        wrapperStyle={{display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "50vh"}}
-        wrapperClass="puff-wrapper mx-auto"
-        />
+        <div className="w-full flex justify-center items-center">
+          <Puff
+          visible={true}
+          height="100"
+          width="100"
+          color="#24422F"
+          ariaLabel="puff-loading"
+          wrapperStyle={{}}
+          wrapperClass="puff-wrapper mx-auto"
+          />
+        </div>
       )}
 
       <div>

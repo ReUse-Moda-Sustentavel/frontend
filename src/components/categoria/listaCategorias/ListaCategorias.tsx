@@ -54,21 +54,20 @@ function ListaCategorias() {
         </Link>
       </div>
 
-      
+
 
       {categorias.length === 0 && (
-        <Puff
-        visible={true}
-        height="100"
-        width="100"
-        color="#4fa94d"
-        ariaLabel="puff-loading"
-        wrapperStyle={{display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "50vh"}}
-        wrapperClass="puff-wrapper mx-auto"
-        />
+        <div className="w-full flex justify-center">
+          <Puff
+            visible={true}
+            height="100"
+            width="100"
+            color="#24422F"
+            ariaLabel="puff-loading"
+            wrapperStyle={{}}
+            wrapperClass="puff-wrapper mx-auto"
+          />
+        </div>
       )}
       <div>
         <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  mx-[5vw] ">
