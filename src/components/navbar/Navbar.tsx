@@ -1,10 +1,11 @@
-import { ShoppingCart, User } from "@phosphor-icons/react"
-import { Link, useNavigate } from "react-router-dom"
-import Contato from "../../pages/Contato/Contato"
-
+import { ShoppingCart, User } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/AuthContext";
 
 function Navbar() {
-    const navigate = useNavigate();
+    const { usuario, handleLogout } = useContext(AuthContext);
+
     return (
         <div className="
                 grid grid-cols-3
@@ -15,16 +16,14 @@ function Navbar() {
                 text-2xl 
                 flex items-center justify-start gap-8">
 
-
-                <Link to="/produtos">Produtos</Link>
-                <Link to="/categorias">Categorias</Link>
-                {/* <Link to="/cadastroProduto">Cadastrar Produto</Link> */}
-                {/* <Link to="/categorias">
-                    <span className="cursor-pointer">Categorias</span>
-                </Link>
-                <Link to="/cadastroCategoria">
-                    <span className="cursor-pointer">Cadastrar Categoria</span>
-                </Link> */}
+                {usuario.token ? (
+                    <>
+                        <Link to="/produtos">Produtos</Link>
+                        <Link to="/categorias">Categorias</Link>
+                    </>
+                ) : (
+                    <></>
+                )}
             </div>
             <div className="
                 text-7xl flex items-center justify-center">
@@ -33,25 +32,30 @@ function Navbar() {
             <div className="
                 text-2xl flex 
                 items-center justify-end">
-                <ul className="
+                {usuario.token ? (
+                    <ul className="
                     flex items-center 
                     justify-around gap-8">
-                    <li className="cursor-pointer">
-                        <Link to="/contato">Contato</Link>
-                    </li>
-                    <li className="cursor-pointer">
-                        <Link to="/sobrenos">Sobre Nós</Link>
-                    </li>
-                    <li className="cursor-pointer">
-                        <Link to="/login">
-                            <User size={24} />
-                        </Link>
-                    </li>
-                    <li className="cursor-pointer">
+                        <li className="cursor-pointer">
+                            <Link to="/contato">Contato</Link>
+                        </li>
+                        <li className="cursor-pointer">
+                            <Link to="/sobrenos">Sobre Nós</Link>
+                        </li>
+                        <li className="cursor-pointer">
+                            <Link to="/login">
+                                <User size={24} />
+                            </Link>
+                        </li>
+                        <li className="cursor-pointer">
 
-                        <Link to='/cart'> <ShoppingCart size={24} /> </Link>
-                    </li>
-                </ul>
+                            <Link to='/cart'> <ShoppingCart size={24} /> </Link>
+                        </li>
+                    </ul>
+                ) : (
+                    <></>
+                )}
+
             </div>
         </div>
     )
