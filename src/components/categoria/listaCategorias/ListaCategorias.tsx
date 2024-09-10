@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { DNA } from 'react-loader-spinner';
+import { Puff } from 'react-loader-spinner';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../../contexts/AuthContext';
 import Categoria from '../../../model/Categoria';
@@ -57,13 +57,14 @@ function ListaCategorias() {
       
 
       {categorias.length === 0 && (
-        <DNA
-          visible={true}
-          height="200"
-          width="200"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper mx-auto"
+        <Puff
+        visible={true}
+        height="100"
+        width="100"
+        color="#4fa94d"
+        ariaLabel="puff-loading"
+        wrapperStyle={{}}
+        wrapperClass="puff-wrapper mx-auto"
         />
       )}
       <div>
