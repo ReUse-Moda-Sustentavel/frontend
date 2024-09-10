@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Produto from "../../../model/Produto";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../../contexts/AuthContext";
@@ -7,8 +7,11 @@ import { DNA } from "react-loader-spinner";
 import CardProduto from "../cardProduto/CardProduto";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
+interface isHome {
+  isHome: boolean;
+}
 
-function ListaProdutos() {
+function ListaProdutos(isHome: isHome) {
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
   let navigate = useNavigate();
@@ -28,7 +31,7 @@ function ListaProdutos() {
       }
     }
   }
- 
+
   useEffect(() => {
     if (token === '') {
       ToastAlerta('Você precisa estar logado', 'info');;
@@ -39,9 +42,22 @@ function ListaProdutos() {
   useEffect(() => {
     buscarTemas();
   }, [produtos.length]);
-  
+
   return (
     <>
+    {isHome.isHome == true && (
+      <div className="mx-[6vw] py-4 flex justify-center md:justify-end ">
+        <Link to="/cadastroProduto">
+          <button
+            className="bg-reuse-green text-white
+                    py-[10px] hover:bg-green-800 outline-none
+                    border-solid border-[1px] border-reuse-green 
+                    w-[280px] rounded-md">
+            Adicionar Produto
+          </button>
+        </Link>
+      </div>
+    )}
       {produtos.length === 0 && (
         <DNA
           visible={true}
@@ -52,16 +68,18 @@ function ListaProdutos() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-      <div className="flex justify-center w-full my-4">
-        <div className="container flex flex-col">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {produtos.map((produto) => (
-              <>
-                <CardProduto key={produto.id} produto={produto} />
-              </>
-            ))}
-          </div>
+
+      <div className="">
+        {/* <div className="container flex flex max-w-[1440px]"> */}
+        <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  mx-[5vw] ">
+          {produtos.map((produto) => (
+            <>
+              <CardProduto key={produto.id} produto={produto} />
+              {/* {produto.categoria?.id == 13 ? <CardProduto key={produto.id} produto={produto} /> : <></>}  */}
+            </>
+          ))}
         </div>
+        {/* </div> */}
       </div>
     </>
   );

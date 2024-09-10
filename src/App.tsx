@@ -28,7 +28,7 @@ function App() {
       <ToastContainer/>
       <BrowserRouter>
           <Navbar />
-          <div className='grid [auto_1fr_auto]'>
+          <div className='min-h-[85vh]'>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/sobrenos' element={<SobreNos />} />
@@ -42,7 +42,7 @@ function App() {
             <Route path="/atualizarCategoria/:id" element={<FormCategoria />} />
             <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
 
-            <Route path='/produtos' element={<ListaProdutos />} />
+            <Route path='/produtos' element={<ListaProdutos isHome={true} />} />
             <Route path="/cadastroProduto" element={<FormProduto />} />
             <Route path="/atualizarProduto/:id" element={<FormProduto />} />
             <Route path="/deletarProduto/:id" element={<DeletarProduto />} />

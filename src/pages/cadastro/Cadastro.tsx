@@ -200,7 +200,8 @@ function Cadastro() {
               className='text-white font-bold
                            bg-reuse-green
                            py-3 px-4 mt-4
-                           w-3/4 hover:opacity-95'
+                           w-3/4 hover:opacity-95
+                           outline-none hover:bg-green-800'
             >
               {isLoading ? <RotatingLines
                 strokeColor="white"

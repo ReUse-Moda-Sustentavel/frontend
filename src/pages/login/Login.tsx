@@ -70,12 +70,12 @@ function Login() {
 
             <button type="submit"
               className='w-[100%] 
-            bg-reuse-green hover:opacity-95
+            bg-reuse-green hover:bg-green-800
             py-3 px-4 mt-4
             self-center    
             text-white 
             font-bold
-            flex 
+            flex outline-none
             items-center justify-center'>
               {
                 isLoading ? <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> :

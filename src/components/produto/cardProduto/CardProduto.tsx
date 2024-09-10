@@ -11,43 +11,51 @@ interface CardProdutoProps {
 function CardProduto({ produto }: CardProdutoProps) {
 
   const { adicionarProduto } = useContext(CartContext)
-  
+
   return (
-    <div className='flex flex-col rounded-lg overflow-hidden justify-between bg-white my-10'>
-    <div className="flex justify-end items-end pt-2 pr-2">
+    <div className='flex flex-col rounded-md 
+          overflow-hidden bg-gray-200 w-[280px] 
+          hover:shadow-2xl duration-150 mx-auto
+          border-solid border-[1px] border-gray-300'>
+      <div className="flex justify-end items-end pt-2 pr-2">
+        <Link to={`/atualizarProduto/${produto.id}`}>
+          <Pencil size={18} className="mr-1 hover:fill-teal-700" />
+        </Link>
 
-      <Link to={`/editarproduto/${produto.id}`}>
-        <Pencil size={24} className="mr-1 hover:fill-teal-700" />
-      </Link>
-
-      <Link to={`/deletarproduto/${produto.id}`}>
-        <Trash size={24} className="mr-1 hover:fill-red-700" />
-      </Link>
-
-    </div>
-
-    <div className='py-4'>
-
-      <img src={produto.foto} className='mt-1 h-44 max-w-75 mx-auto' alt={produto.nome} />
-
-      <div className='p-4'>
-        <p className='text-sm text-center uppercase'>{produto.nome}</p>
-        <h3 className='text-xl text-center font-bold uppercase'>
-          {Intl.NumberFormat('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-          }).format(produto.preco)}
-        </h3>
-        <p className='text-sm italic text-center'>Categoria: {}</p>
+        <Link to={`/deletarproduto/${produto.id}`}>
+          <Trash size={18} className="mr-1 hover:fill-red-700" />
+        </Link>
       </div>
-    </div>
-    <div className="flex flex-wrap">
-      <button className='w-full text-white bg-teal-500 hover:bg-teal-900 flex items-center justify-center py-2'
-        onClick={() => adicionarProduto(produto)}>
-        Comprar
-      </button>
-    </div>
-  </div >
+
+      <div className=''>
+        <div className='p-4'>
+          <img src={produto.foto}
+            className='border-solid border-[1px] border-gray-300 rounded-md' alt={produto.nome} />
+        </div>
+
+        <div>
+          <p className='text-xl text-start pl-4 pt-2 text-font-bold'>{produto.nome}</p>
+          <p className='text-sm text-start pl-4 text-reuse-light-green'>{produto.categoria?.genero}</p>
+          <h3 className='text-xl text-start pl-4 pt-2 '>
+            {Intl.NumberFormat('pt-BR', {
+              style: 'currency',
+              currency: 'BRL'
+            }).format(produto.preco)}
+          </h3>
+          <p className='text-sm text-end pr-4 pb-4'>{produto.categoria?.nome}</p>
+        </div>
+      </div>
+      <div className="flex flex-wrap">
+        <button
+          className='w-full text-white rounded-b-md 
+                      bg-reuse-green hover:bg-green-800 
+                      flex items-center justify-center py-2
+                      border-solid border-[1px] border-reuse-green'
+          onClick={() => adicionarProduto(produto)}>
+          Comprar
+        </button>
+      </div>
+    </div >
   )
 }
 
