@@ -197,11 +197,14 @@ function Cadastro() {
             </button>
             <button
               type='submit'
-              className='text-white font-bold
-                           bg-reuse-green
-                           py-3 px-4 mt-4
-                           w-3/4 hover:opacity-95
-                           outline-none hover:bg-green-800'
+              className='w-[100%] 
+            bg-reuse-green hover:bg-green-800
+            py-3 px-4 mt-4
+            self-center    
+            text-white 
+            font-bold
+            flex outline-none
+            items-center justify-center'
             >
               {isLoading ? <RotatingLines
                 strokeColor="white"
