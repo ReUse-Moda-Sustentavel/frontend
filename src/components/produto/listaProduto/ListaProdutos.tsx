@@ -75,7 +75,10 @@ function ListaProdutos(isHome: isHome) {
         width="100"
         color="#4fa94d"
         ariaLabel="puff-loading"
-        wrapperStyle={{}}
+        wrapperStyle={{display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "50vh"}}
         wrapperClass="puff-wrapper mx-auto"
         />
       )}
