@@ -97,42 +97,58 @@ function FormCategoria() {
   }, [token]);
 
   return (
-    <div className='flex flex-col justify-center items-center mt-4'>
-      <h2 className='text-2xl font-bold'>
-        {id === undefined ? 'Cadastrar Nova Categoria' : 'Editar Categoria'}
-      </h2>
-      <div className='flex flex-col items-center my-4 bg-green-500  px-4 w-[28rem]'>
+    <div className='flex justify-center bg-center bg-login pt-12 pb-24'>
 
-        <form className=" flex flex-col gap-4 pt-2 pb-4 w-full" onSubmit={gerarNovoCategoria}>
-          <label htmlFor="nome" className='text-xl text-center'>
-            Nome da Categoria
-          </label>
-          <input
-            type="text"
-            placeholder="Nome"
-            name='nome'
-            className="py-1 px-2 outline-none"
-            value={categoria.nome}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-          />
-          <label htmlFor="genero" className='text-xl text-center'>
-            Gênero da Categoria
-          </label>
-          <input
-            type="text"
-            placeholder="Gênero"
-            name='genero'
-            className="py-1 px-2 outline-none"
-            value={categoria.genero}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-          />
-          <button
-            className="bg-green-400 flex justify-around py-1 px-2"
-            type="submit"
-          >
-            {id === undefined ? 'Cadastrar' : 'Editar'}
-          </button>
-        </form>
+      <div className='
+        w-[28rem] shadow-2xl 
+        py-8 border-t-[6px] border-reuse-green
+        mx-auto bg-white mb-40
+        flex flex-col  items-center box-border
+      '>
+        <div className='flex flex-col items-center w-full px-8 '>
+          <h2 className='text-3xl text-reuse-green font-bold pb-8'>
+            {id === undefined ? 'Cadastrar Nova Categoria' : 'Editar Categoria'}
+          </h2>
+
+          <form
+            className="flex flex-col w-[100%]"
+            onSubmit={gerarNovoCategoria}>
+            <input
+              type="text"
+              placeholder="Nome"
+              name='nome'
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
+              value={categoria.nome}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            />
+            <input
+              type="text"
+              placeholder="Gênero"
+              name='genero'
+              className='border border-gray-400 
+                  w-[100%] py-3 px-4 mb-6 
+                  outline-none text-reuse-green'
+              value={categoria.genero}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+            />
+            <button
+              className='
+              w-[100%] 
+            bg-reuse-green hover:bg-green-800
+            py-3 px-4 mt-4
+            self-center    
+            text-white 
+            font-bold
+            flex  outline-none
+            items-center justify-center '
+              type="submit"
+            >
+              {id === undefined ? 'Cadastrar' : 'Editar'}
+            </button>
+          </form>
+        </div>
 
       </div>
     </div>
