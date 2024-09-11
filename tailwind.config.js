@@ -10,8 +10,11 @@ export default {
         'italiana': ["Italiana", 'sans-serif'],
       },
       backgroundImage: {
-        'home': "url('src/assets/wardrobe-home-image.jpg')",
-        'login': "url('src/assets/login-background.jpg')"
+        'home': "url('wardrobe-home-image.jpg')",
+        'login': "url('login-background.jpg')"
+        // https://reuse-modas.netlify.app/assets/src/assets/login-background.jpg
+        // 'home': "url('src/assets/wardrobe-home-image.jpg')",
+        // 'login': "url('src/assets/login-background.jpg')"
       },
       colors: {
         'reuse-light-green': "#3C704F",
