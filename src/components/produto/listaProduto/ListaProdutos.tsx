@@ -56,7 +56,7 @@ function ListaProdutos(isHome: isHome) {
   return (
     <>
       {isHome.isHome == true && (
-        <div className="mx-[6vw] py-4 flex justify-center md:justify-end ">
+        <div className="mx-[6vw] py-4 flex justify-center md:justify-end">
           <Link to="/cadastroProduto">
             <button
               className="bg-reuse-green text-white
@@ -82,7 +82,7 @@ function ListaProdutos(isHome: isHome) {
         </div>
       )}
 
-      <div>
+      <div className="mb-12">
         <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  mx-[5vw] ">
           {produtos.map((produto) => (
             <>

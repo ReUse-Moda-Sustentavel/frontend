@@ -69,7 +69,7 @@ function ListaCategorias() {
           />
         </div>
       )}
-      <div>
+      <div className='mb-12'>
         <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  mx-[5vw] ">
           {categorias.map((categoria) => (
             <>

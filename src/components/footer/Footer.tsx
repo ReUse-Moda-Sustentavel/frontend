@@ -6,9 +6,7 @@ function Footer() {
 
   return (
     <>
-      <div className='space-y-4 '><p>
-        <br />
-      </p>
+      <div className='space-y-4'>
         <div className="  flex justify-center font-italiana text-reuse-green h-30 px-10 bg-gray-200">
           <div className=" space-y-2  container flex flex-col items-center py-9">
             <p className=' font-bold  text-3xl'> {data}</p>
