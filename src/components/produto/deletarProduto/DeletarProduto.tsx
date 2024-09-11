@@ -67,20 +67,20 @@ function DeletarProduto() {
 
   return (
     <div className='flex justify-center'>
-      <div className='flex flex-col items-center my-4 bg-green-500 py-2 px-4'>
+      <div className='flex flex-col items-center my-4 bg-reuse-green py-2 px-4'>
         <h2 className='text-xl pb-4 font-bold text-white'>
           Você tem certeza que deseja apagar o produto a seguir?
         </h2>
         <span className=' w-full text-center bg-white py-2'>
           {produto.id} - {produto.nome}
         </span>
-        <div className='flex justify-around w-[100%] mt-4 gap-4'>
+        <div className='flex justify-around w-[100%] mt-4 gap-4 pb-2'>
           <button onClick={retornar}
-            className="w-1/2 py-1 px-2 border-green-600 border-solid border-[1px] bg-green-400">
+            className="w-1/2 py-1 px-2 border-green-600 border-solid border-[1px] bg-white">
             Não
           </button>
           <button onClick={deletarProduto}
-            className="w-1/2 py-1 px-2 border-green-600 border-solid border-[1px] bg-green-400">
+            className="w-1/2 py-1 px-2 border-green-600 border-solid border-[1px] bg-white">
             Sim
           </button>
         </div>

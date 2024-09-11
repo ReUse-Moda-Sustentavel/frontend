@@ -51,26 +51,17 @@ function FormProduto() {
     }
   }
 
-  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
-    setProduto({
-      ...produto,
-      [e.target.name]: e.target.value,
-      [e.target.name]: e.target.name === "preco" ? parseFloat(e.target.value) : e.target.value,
-      categoria: categoria,
-    })
-  }
-
   async function gerarNovoProduto(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
 
     if (id !== undefined) {
       try {
+        
         await atualizar(`/produto`, produto, setProduto, {
           headers: {
             'Authorization': token
           }
         })
-
         ToastAlerta('Produto atualizado com sucesso', 'sucesso')
         retornar()
 
@@ -110,6 +101,19 @@ function FormProduto() {
     navigate("/produtos")
   }
 
+  
+  function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
+    console.log(JSON.stringify(produto));
+    setProduto({
+      ...produto,
+      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.name === "preco" ? parseFloat(e.target.value) : e.target.value,
+      categoria: categoria,
+    })
+    
+    
+  }
+
   useEffect(() => {
     buscarCategorias();
 
@@ -126,7 +130,7 @@ function FormProduto() {
   }, [categoria])
 
 
-  useEffect(() => {
+  useEffect(() => { // ok 
     if (token === '') {
       ToastAlerta('Você precisa estar logado', 'info');;
       navigate('/login');
@@ -150,6 +154,7 @@ function FormProduto() {
             className="flex flex-col w-[100%]"
             onSubmit={gerarNovoProduto}>
 
+          {id === undefined ?
             <select
               name="categoria"
               id="categoria"
@@ -164,7 +169,9 @@ function FormProduto() {
                 </>
               ))}
 
-            </select>
+            </select> 
+            :
+            <></>}
 
             <input
               type="text"

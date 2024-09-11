@@ -22,7 +22,7 @@ function CardProduto({ produto }: CardProdutoProps) {
           <Pencil size={18} className="mr-1 hover:fill-teal-700" />
         </Link>
 
-        <Link to={`/deletarproduto/${produto.id}`}>
+        <Link to={`/deletarProduto/${produto.id}`}>
           <Trash size={18} className="mr-1 hover:fill-red-700" />
         </Link>
       </div>
