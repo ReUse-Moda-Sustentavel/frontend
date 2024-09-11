@@ -10,8 +10,8 @@ export default {
         'italiana': ["Italiana", 'sans-serif'],
       },
       backgroundImage: {
-        'home': "url('wardrobe-home-image.jpg')",
-        'login': "url('login-background.jpg')"
+        'home': "url('public/wardrobe-home-image.jpg')",
+        'login': "url('public/login-background.jpg')"
         // https://reuse-modas.netlify.app/assets/src/assets/login-background.jpg
         // 'home': "url('src/assets/wardrobe-home-image.jpg')",
         // 'login': "url('src/assets/login-background.jpg')"
