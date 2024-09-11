@@ -1,4 +1,4 @@
-import { ShoppingCart, User } from "@phosphor-icons/react";
+import { ShoppingCart, SignOut, User } from "@phosphor-icons/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
@@ -43,13 +43,10 @@ function Navbar() {
                             <Link to="/sobrenos">Sobre Nós</Link>
                         </li>
                         <li className="cursor-pointer">
-                            <Link to="/login">
-                                <User size={24} />
-                            </Link>
+                            <Link to='/cart'> <ShoppingCart size={24} /> </Link>
                         </li>
                         <li className="cursor-pointer">
-
-                            <Link to='/cart'> <ShoppingCart size={24} /> </Link>
+                                <SignOut onClick={handleLogout} size={24} />
                         </li>
                     </ul>
                 ) : (

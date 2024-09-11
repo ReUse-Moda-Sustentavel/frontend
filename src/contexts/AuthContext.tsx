@@ -54,6 +54,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             foto: '',
             token: '',
         })
+        ToastAlerta("Usuário deslogado", "sucesso");
     }
 
     return (
