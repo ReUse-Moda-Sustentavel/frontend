@@ -10,11 +10,7 @@ export default {
         'italiana': ["Italiana", 'sans-serif'],
       },
       backgroundImage: {
-        'home': "url('public/wardrobe-home-image.jpg')",
-        'login': "url('public/login-background.jpg')"
-        // https://reuse-modas.netlify.app/assets/src/assets/login-background.jpg
-        // 'home': "url('src/assets/wardrobe-home-image.jpg')",
-        // 'login': "url('src/assets/login-background.jpg')"
+        'login': "url('https://ik.imagekit.io/sfl8kzqbl/Turma%2004%20PI/fundo-cadastro-login.jpg?updatedAt=1726008120663')"
       },
       colors: {
         'reuse-light-green': "#3C704F",
