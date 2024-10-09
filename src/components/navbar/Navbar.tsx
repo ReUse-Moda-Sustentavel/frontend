@@ -1,4 +1,4 @@
-import { ShoppingCart, SignOut, User } from "@phosphor-icons/react";
+import { ShoppingCart, SignIn, SignOut, User, UserCircle } from "@phosphor-icons/react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
@@ -50,7 +50,9 @@ function Navbar() {
                         </li>
                     </ul>
                 ) : (
-                    <></>
+                    <Link to="/login">
+                        <UserCircle size={32} className="cursor-pointer" />
+                    </Link>
                 )}
 
             </div>
