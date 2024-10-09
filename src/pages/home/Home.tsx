@@ -43,15 +43,15 @@ function Home() {
 
   return (
     <>
-      <div className="max-w-[1400px] h-[780px] w-full m-auto pt-4 px-4 pb-16 relative group">
+      <div className="max-w-[100%] h-[400px] w-full m-auto pt-4 px-4 pb-16 relative group">
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
           className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
         >
-          <div className="hidden group-hover:block absolute top-50% -translate-x-0 translate-y-[750%] left-4 text-2xl rounded full p-2  text-white cursor-pointer">
+          <div className="hidden group-hover:block absolute top-50% -translate-x-0 translate-y-[300%] left-4 text-2xl rounded full p-2  text-white cursor-pointer">
             <ArrowCircleLeft size={32} onClick={prevSlide} />
           </div>
-          <div className="hidden group-hover:block absolute top-50% -translate-x-0 translate-y-[750%] right-4 text-2xl rounded full p-2  text-white cursor-pointer">
+          <div className="hidden group-hover:block absolute top-50% -translate-x-0 translate-y-[300%] right-4 text-2xl rounded full p-2  text-white cursor-pointer">
             <ArrowCircleRight size={32} onClick={nextSlide} />
           </div>
         </div>

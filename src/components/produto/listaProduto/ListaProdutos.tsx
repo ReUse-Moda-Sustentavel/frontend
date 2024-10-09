@@ -44,8 +44,8 @@ function ListaProdutos(isHome: isHome) {
 
   useEffect(() => {
     if (token === '') {
-      ToastAlerta('Você precisa estar logado', 'info');;
-      navigate('/login');
+      // ToastAlerta('Você precisa estar logado', 'info');;
+      // navigate('/login');
     }
   }, [token]);
 
