@@ -54,7 +54,7 @@ function ListaProdutos(isHome: isHome) {
   }, [produtos.length]);
 
   return (
-    <>
+    <div className="max-w-7xl m-auto bg-gray-100 ">
       {isHome.isHome == true && (
         <div className="mx-[6vw] py-4 flex justify-center md:justify-end">
           <Link to="/cadastroProduto">
@@ -82,8 +82,8 @@ function ListaProdutos(isHome: isHome) {
         </div>
       )}
 
-      <div className="mb-12">
-        <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  mx-[5vw] ">
+      <div className="mb-12 ">
+        <div className="grid items-center justify-center grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 wrap  ">
           {produtos.map((produto) => (
             <>
               {categoria ?
@@ -94,7 +94,7 @@ function ListaProdutos(isHome: isHome) {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

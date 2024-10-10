@@ -30,7 +30,7 @@ function CardProduto({ produto }: CardProdutoProps) {
       <div className=''>
         <div className='pt-2 p-4'>
           <img src={produto.foto}
-            className='border-solid border-[1px] border-gray-300 rounded-md' alt={produto.nome} />
+            className='border-solid border-[1px] border-gray-300 rounded-md m-auto' alt={produto.nome} />
         </div>
 
         <div>

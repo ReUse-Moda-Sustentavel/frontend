@@ -43,10 +43,10 @@ function Home() {
 
   return (
     <>
-      <div className="max-w-[100%] h-[400px] w-full m-auto pt-4 px-4 pb-16 relative group">
+      <div className="max-w-[100%] h-[400px] w-full m-auto pb-16 relative group pt-2 ">
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+          className="w-full h-full bg-center bg-cover duration-500" // rounded-2xl
         >
           <div className="hidden group-hover:block absolute top-50% -translate-x-0 translate-y-[300%] left-4 text-2xl rounded full p-2  text-white cursor-pointer">
             <ArrowCircleLeft size={32} onClick={prevSlide} />
@@ -55,7 +55,7 @@ function Home() {
             <ArrowCircleRight size={32} onClick={nextSlide} />
           </div>
         </div>
-        <div className="flex top-4 justify-center py-2">
+        <div className="flex top-2 justify-center py-2">
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
