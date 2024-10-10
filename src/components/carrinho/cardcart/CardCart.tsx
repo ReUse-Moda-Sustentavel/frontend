@@ -32,7 +32,7 @@ function CardCart({ item }: CardProdutosProps) {
                 </div>
             </div>
             <div className="flex flex-wrap">
-                <button className='w-1/2 text-slate-100 bg-blue-500 hover:bg-blue-700 
+                <button className='w-1/2 text-slate-100 bg-reuse-green hover:bg-blue-700 
                                    flex items-center justify-center py-2'
                     onClick={() => aumentarProduto(item.id)}>
                     <Plus size={32} />

@@ -13,7 +13,7 @@ function CardProduto({ produto }: CardProdutoProps) {
   const { adicionarProduto } = useContext(CartContext)
 
   return (
-    <div className='flex flex-col rounded-md 
+    <div className='flex flex-col rounded-sm 
           overflow-hidden bg-gray-200 w-[280px] 
           hover:shadow-2xl duration-150 mx-auto
           border-solid border-[1px] border-gray-300'>

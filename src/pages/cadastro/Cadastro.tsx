@@ -82,7 +82,7 @@ function Cadastro() {
 
   return (
     <div className='bg-login bg-center h-[100vh] py-12'>
-      <div className="w-[28rem] shadow-2xl 
+      <div className="max-w-[28rem] shadow-2xl 
                       p-8 border-t-[6px] border-reuse-green
                       mx-auto bg-white">
         <form className='

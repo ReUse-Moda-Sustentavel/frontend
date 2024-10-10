@@ -39,7 +39,7 @@ function Login() {
   return (
     <div className='bg-login bg-center h-[100vh] pt-12'>
       <div className="
-      w-[28rem] shadow-2xl 
+      max-w-[28rem] shadow-2xl 
       p-8 border-t-[6px] border-reuse-green
       mx-auto bg-white">
         <div className="flex flex-col justify-center items-center">

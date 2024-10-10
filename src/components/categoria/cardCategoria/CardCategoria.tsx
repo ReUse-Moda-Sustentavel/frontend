@@ -9,12 +9,12 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
   return (
     <>
       <Link to="/produtos" state={categoria}>
-        <div className="flex flex-col items-center rounded-md 
+        <div className="flex flex-col items-center rounded-sm 
           overflow-hidden bg-gray-200 w-[280px] 
           hover:shadow-xl duration-150 mx-auto
           border-solid border-[1px] border-gray-300 cursor-pointer">
           <div className="py-[12px] px-4 text-xl w-full bg-gray-300 font-bold">{categoria.nome}</div>
-          <div className="py-[8px] px-4  w-full text-lg text-end">{categoria.genero}</div>
+          <div className="py-[8px] px-4  w-full text-lg ">{categoria.genero}</div>
           <div className="flex justify-around w-full bg-reuse-green">
             <button className="w-1/2 text-white rounded-b-md 
                       bg-reuse-green hover:bg-green-800 

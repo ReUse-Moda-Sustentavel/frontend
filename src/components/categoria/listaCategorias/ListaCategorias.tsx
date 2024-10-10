@@ -48,7 +48,7 @@ function ListaCategorias() {
             className="bg-reuse-green text-white
                     py-[10px] hover:bg-green-800 outline-none
                     border-solid border-[1px] border-reuse-green 
-                    w-[280px] rounded-md">
+                    w-[280px] rounded-sm">
             Adicionar Categoria
           </button>
         </Link>

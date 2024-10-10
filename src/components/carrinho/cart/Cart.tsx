@@ -13,7 +13,7 @@ function Cart() {
                 flex 
                 flex-col
                 justify-center
-                mb-8
+                mb-8 mt-2
                 ">
 
             <h1 className="text-4xl text-center my-4">
